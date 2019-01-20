@@ -31,6 +31,6 @@ func main() {
     http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
 	err:=http.ListenAndServe(":8080",nil)
 	if err!=nil{
-		fmt.Println("Sever started on port 8080:")
+		fmt.Println("Sever stoped on port 8080:")
 	}
 }
