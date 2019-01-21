@@ -1,13 +1,32 @@
-.poem {
-  padding: 2%;
-}
 @media only screen and (min-width: 992px) {
   .poem {
+  	padding-top: 5%;
     font-size: 2vw;
+  }
+  .poem .Name{
+  	padding-left: 30%;
+  }
+  .poem .Author{
+  	padding-left: 40%;
+  }
+  .poem .Content{
+  	padding-left: 20%;
+  	white-space: pre-wrap;"
   }
 }
 @media only screen and (max-width: 992px) {
   .poem {
+  	padding-top: 10%;
   	font-size: 5vw;
+  }
+  .poem .Name{
+  	padding-left: 30%;
+  }
+  .poem .Author{
+  	padding-left: 50%;
+  }
+  .poem .Content{
+  	padding-left: 10%;
+  	white-space: pre-wrap;"
   }
 }

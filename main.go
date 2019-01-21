@@ -21,11 +21,12 @@ func form(w http.ResponseWriter,r *http.Request){
     	poem.Author = r.FormValue("Author")
     	poem.Name = r.FormValue("Name")
     	poem.Content = r.FormValue("Content")
-    	fmt.Println("Content:\n",poem.Content)
+    	//fmt.Println("Content:\n",poem.Content)
     	tmpl.ExecuteTemplate(w,"show.html",poem) 
     }
 }
 func main() {
+    fmt.Println("Sever started on port 8080:")
 	http.HandleFunc("/",form)
     //http.Handle("/static", http.FileServer(http.Dir("css/")))
     http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
