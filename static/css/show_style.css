@@ -1,7 +1,9 @@
 @media only screen and (min-width: 992px) {
   .poem {
-  	padding-top: 5%;
-    font-size: 2vw;
+  	position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 10%;
   }
   .poem .Name{
   	padding-left: 30%;
@@ -20,8 +22,9 @@
 @media only screen and (max-width: 992px) {
   .poem {
     position: absolute;
-  	padding-top: 10%;
-  	font-size: 5vw;
+    text-align: center;
+    width: 100%;
+    top: 10%;
   }
   .poem .Name{
   	padding-left: 30%;
