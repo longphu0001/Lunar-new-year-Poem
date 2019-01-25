@@ -10,10 +10,6 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-/*.buttons {
-    margin: 3%;
-    text-align: center;
-}*/
 @media only screen and (min-width: 992px) {
     .buttons{
         margin: 5%;
@@ -31,9 +27,9 @@
         text-align: center;
     }
     .btn-hover{
-        width: 250px;
-        height: 70px;
-        font-size: 30px;
+        width: 400px;
+        height: 100px;
+        font-size: 50px;
     }
 }
 .btn-hover {
