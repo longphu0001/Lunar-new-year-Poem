@@ -53,7 +53,7 @@ var tmpl = template.Must(template.ParseGlob("tmpl/*"))
     	tmpl.ExecuteTemplate(w,"show.html",poem) 
     }
 }*/
-func form(w http.ResponseWriter,r *http.Request){
+func Form(w http.ResponseWriter,r *http.Request){
     fmt.Println("r method:",r.Method)
     if r.Method ==  "GET"{
         tmpl.ExecuteTemplate(w,"form.html",nil)     
@@ -110,7 +110,8 @@ func main() {
     Init()
     //http.Handle("/static", http.FileServer(http.Dir("css/")))
     http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("static"))))
-    http.HandleFunc("/",form)
+    http.HandleFunc("/",Show)
+    http.HandleFunc("/form",Form)
     http.HandleFunc("/show",Show)
     http.HandleFunc("/insert",Insert)
 	err:=http.ListenAndServe(":8080",nil)
