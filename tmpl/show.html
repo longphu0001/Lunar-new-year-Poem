@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Web app</title>
+	<title>Tho tet 2019</title>
 	<meta charset="utf-8">
+	<!--meta name="viewport" content="width=device-width, initial-scale=1.0"-->
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" type="text/css" href="../static/css/show_style.css">
 	<link rel="stylesheet" type="text/css" href="../static/css/lucky-money.css">
 	<link rel="stylesheet" type="text/css" href="../static/css/button.css"">
 	<link rel="icon" href="../static/img/lucky-money.png" type="image/png">
+	<script type="text/javascript" src="https://cdn.rawgit.com/alexgibson/shake.js/master/shake.js"></script>
 </head>
 <body>
 	<section>
@@ -45,16 +47,51 @@
 		<p class="Name">{{.Name}}</p>
 		<p class="Content">{{.Content}}</p>
 		<p class="Author">{{.Author}}</p>
+		<p class="Content">{{.Id}}</p>
 	</div>
+	<!-- Listen shake and clink button Event! -->
+	<script type="text/javascript">
+		var Num = {{.CountPoem}};
+		console.log('CountPoem : ',Num);
+		function clickButton_1(){
+			var id = Math.floor((Math.random() * Num) + 1);
+			location.href='/show?id='+id;
+			console.log('id = ',id)
+		}
+		//Shake Event
+		var shakeEvent = new Shake({threshold: 15});
+		shakeEvent.start();
+		window.addEventListener('shake', function(){
+			var id = Math.floor((Math.random() * Num) + 1);
+			location.href='/show?id='+id;
+		}, false);
+		    //stop listening
+		function stopShake(){
+			shakeEvent.stop();
+		}
+		    //check if shake is supported or not.
+		if(!("ondevicemotion" in window)){alert("Not Supported");}
+		//End
+	</script>
+	<!-- End -->
 	<script src="../static/js/scramble-ES5.min.js"></script>
 	<script src="../static/js/example.min.js"></script>
 	<footer class="footer">
 		<div class="buttons">
-		  	<a id="click-button-1" onclick="clickButton_1()">
+		  	<a id="click-button-1" style="display: none" onclick="clickButton_1()">
 		  		<button class="btn-hover color-2">Lắc Thơ</button>
 		  	</a>
+		  	<div id="shakediv" style="display: block;text-align: center;">
+		  		<img id="shakeimg" src="../static/img/shake.gif">
+		  		<p id="shakep">Shake it!!!</p>
+		  	</div>
+			<script type="text/javascript">
+				setTimeout(function(){
+				    document.getElementById('shakediv').style.display = 'none';
+				    document.getElementById('click-button-1').style.display = 'block';
+				},3000);
+			</script>
 		</div>
 	</footer>
-	<script type="text/javascript" src="../static/js/show.js"></script>
 </body>
 </html>

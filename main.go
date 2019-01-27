@@ -4,6 +4,7 @@ import(
 	"net/http"
     "database/sql"
     "log"
+    //"os"
 	"text/template"
     _ "github.com/lib/pq"
 )
@@ -13,6 +14,7 @@ type Poem struct{
 	Author string
 	Name string
 	Content string
+    CountPoem int
 }
 func dbConn() (db *sql.DB) {
     dbUrl:="postgres://postgres:postgres@localhost:5432/nydb?sslmode=disable"
@@ -38,21 +40,6 @@ func Init() {
     log.Println("init table poems")
 }
 var tmpl = template.Must(template.ParseGlob("tmpl/*"))
-/*func form(w http.ResponseWriter,r *http.Request){
-    fmt.Println("r method:",r.Method)
-    switch r.Method {
-    case "GET":
-    	tmpl.ExecuteTemplate(w,"form.html",nil)     
-    case "POST":
-    	r.ParseForm()
-    	poem :=Poem{}
-    	poem.Author = r.FormValue("Author")
-    	poem.Name = r.FormValue("Name")
-    	poem.Content = r.FormValue("Content")
-    	//fmt.Println("Content:\n",poem.Content)
-    	tmpl.ExecuteTemplate(w,"show.html",poem) 
-    }
-}*/
 func Form(w http.ResponseWriter,r *http.Request){
     fmt.Println("r method:",r.Method)
     if r.Method ==  "GET"{
@@ -101,9 +88,23 @@ func Show(w http.ResponseWriter, r *http.Request) {
         poem.Name = Name
         poem.Author = Author
         poem.Content = Content
+        poem.CountPoem = getCountPoem()
     }
     tmpl.ExecuteTemplate(w, "show.html", poem)
     defer db.Close()
+}
+func getCountPoem() int{
+    db := dbConn()
+    selDB, err := db.Query("SELECT COUNT(*) FROM poems")
+    var count int
+    for selDB.Next(){
+        if err != nil {
+            panic(err.Error())
+        }
+        err = selDB.Scan(&count)
+    }
+    defer db.Close()
+return count
 }
 func main() {
     fmt.Println("Sever started on port 8080:")
@@ -114,7 +115,8 @@ func main() {
     http.HandleFunc("/form",Form)
     http.HandleFunc("/show",Show)
     http.HandleFunc("/insert",Insert)
-	err:=http.ListenAndServe(":8080",nil)
+	//err:=http.ListenAndServe(":" + os.Getenv("PORT"), nil)
+    err:=http.ListenAndServe(":8080",nil)
 	if err!=nil{
 		fmt.Println("Sever stopped on port 8080:")
 	}

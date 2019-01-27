@@ -1,8 +1,11 @@
 .footer {
    position: fixed;
+   display: block;
    left: 0;
    bottom: 0;
+   right: 0;
    width: 100%;
+   overflow: hidden;
    text-align: center;
 }
 * {
@@ -10,9 +13,10 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1201px) {
     .buttons{
-        margin: 5%;
+        display: block;
+        margin: 2%;
         text-align: center;
     }
     .btn-hover{
@@ -21,8 +25,9 @@
         font-size: 20px;
     }
 }
-@media only screen and (max-width: 992px){
+@media only screen and (max-width: 1200px){
     .buttons{
+        display: block;
         margin: 10%;
         text-align: center;
     }
