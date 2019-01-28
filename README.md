@@ -1,8 +1,13 @@
-### Lunar-new-year-Poem
+## Lunar-new-year-Poem
+
 
 ### Language: Golang
 
-### UI: HTML CSS JS
+### PostgreSQL
 
-### DATBASE: PostgreSQL
+### Html, css, javasript
 
+### Instruction
+__Lắc Thơ web app__ : https://thotet.herokuapp.com
+
+Use button or shake your device to generate new poem paragraph.
