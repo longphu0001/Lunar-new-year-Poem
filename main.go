@@ -17,7 +17,8 @@ type Poem struct{
     CountPoem int
 }
 func dbConn() (db *sql.DB) {
-    dbUrl:="postgres://postgres:postgres@localhost:5432/nydb?sslmode=disable"
+    //dbUrl:="postgres://postgres:postgres@localhost:5432/nydb?sslmode=disable"
+    dbUrl:="postgres://bleavwgvtthlov:a5b11e3ba3d51ec56cf6532e88aec779ba06f475ecec45b5f7146b288fe3e792@ec2-54-227-246-152.compute-1.amazonaws.com:5432/d188hem1a3744r"
     db, err := sql.Open("postgres",dbUrl)
     err = db.Ping()
     if err != nil {
