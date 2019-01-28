@@ -1,13 +1,27 @@
 ## Lunar-new-year-Poem
 
-
 ### Language: Golang
 
-### PostgreSQL
+![alt text](https://github.com/khanhhuynguyenvu/Lunar-new-year-Poem/blob/master/static/img/golang.png)
 
-### Html, css, javasript
+### > PostgreSQL
+
+![alt text](https://github.com/khanhhuynguyenvu/Lunar-new-year-Poem/blob/master/static/img/postgres.png)
+
+### > Html, css, javasript
+
+### > Folder path tree
+
+![alt text](https://github.com/khanhhuynguyenvu/Lunar-new-year-Poem/blob/master/static/img/TreePath.PNG)
 
 ### Instruction
+
+## Web:
 __Lắc Thơ web app__ : https://thotet.herokuapp.com
 
-Use button or shake your device to generate new poem paragraph.
+Use button or __shake your device__ to generate new poem paragraph.
+
+![alt text](https://github.com/khanhhuynguyenvu/Lunar-new-year-Poem/blob/master/static/img/Lactho.PNG)
+
+## Local:
+__Sever local start__ at port __8080__
