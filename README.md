@@ -10,6 +10,8 @@
 
 ### > Html, css, javasript
 
+![alt text](https://github.com/khanhhuynguyenvu/Lunar-new-year-Poem/blob/master/static/img/html-css-js.png)
+
 ### > Folder path tree
 
 ![alt text](https://github.com/khanhhuynguyenvu/Lunar-new-year-Poem/blob/master/static/img/TreePath.PNG)
